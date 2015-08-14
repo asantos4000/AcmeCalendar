@@ -16,3 +16,31 @@
 //= require_tree .
 //= require moment
 //= require fullcalendar
+
+
+
+$(document).ready(function() {
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+        // put your options and callbacks here
+
+        views: {
+        basic: {
+            // options apply to basicWeek and basicDay views
+        },
+        agenda: {
+            // options apply to agendaWeek and agendaDay views
+        },
+        week: {
+            // options apply to basicWeek and agendaWeek views
+        },
+        day: {
+            // options apply to basicDay and agendaDay views
+        }
+    }
+        
+    })
+
+});

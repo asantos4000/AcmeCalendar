@@ -8,9 +8,57 @@
 
 
   <link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
-<script src='lib/jquery.min.js'></script>
-<script src='lib/moment.min.js'></script>
-<script src='fullcalendar/fullcalendar.js'></script>
+  <script src='lib/jquery.min.js'></script>
+  <script src='lib/moment.min.js'></script>
+  <script src='fullcalendar/fullcalendar.js'></script>
+
+	<script>
+	var $fc = $("#calendar");
+
+var options = { // Create an options object
+  googleCalendarApiKey: 'key',
+  events: {
+    googleCalendarId: 'id'
+  },
+  header: {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'agendaDay,agendaWeek,month'
+  },
+  eventBackgroundColor: 'transparent',
+  eventBorderColor: '#08c',
+  eventTextColor: 'black',
+  height: 'auto',
+  defaultView: 'agendaWeek',
+  allDaySlot: false,
+}
+$fc.fullCalendar(options);
+
+function recreateFC(screenWidth) { // This will destroy and recreate the FC taking into account the screen size
+  if (screenWidth < 700) {
+    options.header = {
+      left: 'prev,next today',
+      center: 'title',
+      right: ''
+    };
+    options.defaultView = 'agendaDay';
+  } else {
+    options.header = {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'agendaDay,agendaWeek,month'
+    };
+    options.defaultView = 'agendaWeek';
+  }
+}
+
+$(window).resize(function (e) { //set window resize listener
+  recreateFC($(window).width()); //or you can use $(document).width()
+});
+
+</script>
+
+
 </head>
 <body>
 

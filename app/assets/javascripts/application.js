@@ -25,22 +25,8 @@ $(document).ready(function() {
 
     $('#calendar').fullCalendar({
         // put your options and callbacks here
+    		events: '/events.json'
 
-        views: {
-        basic: {
-            // options apply to basicWeek and basicDay views
-        },
-        agenda: {
-            // options apply to agendaWeek and agendaDay views
-        },
-        week: {
-            // options apply to basicWeek and agendaWeek views
-        },
-        day: {
-            // options apply to basicDay and agendaDay views
-        }
-    }
-        
     })
 
 });
